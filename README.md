@@ -23,6 +23,8 @@ It focuses on:
 
 ![AWS Architecture](images/architecture.png)
 
+This diagram represents the full cloud network design, including VPC, public/private subnets, Bastion Host, NAT Gateway, and EC2 instances.
+
 ---
 
 ## 🏛️ System Architecture Design
@@ -35,7 +37,7 @@ External users access the system through the Application Load Balancer.
 ### ⚖️ Public Subnet Layer
 - Application Load Balancer (ALB)
 - Bastion Host (secure SSH entry point)
-- NAT Gateway (outbound internet access)
+- NAT Gateway (outbound internet access for private instances)
 
 ---
 
@@ -71,6 +73,17 @@ Private EC2 → NAT Gateway → Internet Gateway → Internet
 
 ---
 
+## 🧭 AWS Resource Map (Logical Infrastructure View)
+
+![AWS Resources Map](images/vpc-resources.png)
+
+This diagram provides a high-level view of how all AWS resources are connected inside the VPC.  
+It shows relationships between subnets, routing paths, security layers, and compute resources.
+
+It helps visualize how traffic flows across the infrastructure and how each component interacts within the AWS environment.
+
+---
+
 ## 🔐 Security Design
 
 - No direct public access to application servers  
@@ -86,49 +99,49 @@ Private EC2 → NAT Gateway → Internet Gateway → Internet
 ### 🟦 VPC Overview
 ![VPC](images/vpc.png)
 
-This shows the Virtual Private Cloud (VPC) that isolates all resources within a secure AWS network boundary.
+The VPC isolates all AWS resources within a secure network boundary.
 
 ---
 
 ### 🔐 Security Groups
 ![Security Groups](images/security-groups.png)
 
-Security groups act as virtual firewalls controlling inbound and outbound traffic to AWS resources.
+Security groups act as virtual firewalls controlling inbound and outbound traffic.
 
 ---
 
 ### 🚪 NAT Gateway
 ![NAT Gateway](images/nat-gateway.png)
 
-Allows private instances to access the internet securely without being publicly exposed.
+Enables private EC2 instances to access the internet securely without being publicly exposed.
 
 ---
 
 ### 🧭 Route Tables
 ![Route Tables](images/route-table.png)
 
-Defines how traffic flows inside the VPC between public and private subnets.
+Controls how traffic flows between public and private subnets.
 
 ---
 
 ### 🖥️ Bastion Host Access
 ![Bastion SSH](images/ssh-bastion.png)
 
-Secure entry point used to SSH into private EC2 instances.
+Secure entry point used for SSH access into private instances.
 
 ---
 
 ### 🧑‍💻 Private EC2 Access
 ![App SSH](images/ssh-app.png)
 
-Demonstrates secure access to private EC2 via Bastion Host.
+Demonstrates secure access to private EC2 through Bastion Host.
 
 ---
 
 ### 📦 Terraform Plan
 ![Terraform Plan](images/terraform-plan.png)
 
-Shows infrastructure changes before deployment for review and validation.
+Shows planned infrastructure changes before deployment.
 
 ---
 
