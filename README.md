@@ -136,3 +136,10 @@ This project demonstrates a production-style AWS network architecture with stron
 
 DevOps Engineer Portfolio Project  
 Focused on Cloud Infrastructure, Automation, and Secure Architecture Design
+
+## 🧪 Validation Proof
+
+- Successfully SSH into Bastion host
+- Successfully accessed private EC2 via Bastion
+- Verified NAT Gateway internet access using curl
+- Confirmed ALB routes traffic to application server
