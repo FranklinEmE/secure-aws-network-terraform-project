@@ -73,39 +73,69 @@ Private EC2 → NAT Gateway → Internet Gateway → Internet
 
 ## 🔐 Security Design
 
-- No direct public access to application servers
-- Bastion host restricted to trusted IPs
-- Private subnet fully isolated
-- ALB is the only public entry point
-- NAT Gateway enables secure outbound traffic
+- No direct public access to application servers  
+- Bastion host restricted to trusted IPs  
+- Private subnet fully isolated  
+- ALB is the only public entry point  
+- NAT Gateway enables secure outbound traffic  
 
 ---
 
 ## 📸 Architecture Screenshots
 
-### VPC Overview
+### 🟦 VPC Overview
 ![VPC](images/vpc.png)
 
-### Security Groups
+This shows the Virtual Private Cloud (VPC) that isolates all resources within a secure AWS network boundary.
+
+---
+
+### 🔐 Security Groups
 ![Security Groups](images/security-groups.png)
 
-### NAT Gateway
+Security groups act as virtual firewalls controlling inbound and outbound traffic to AWS resources.
+
+---
+
+### 🚪 NAT Gateway
 ![NAT Gateway](images/nat-gateway.png)
 
-### Route Tables
+Allows private instances to access the internet securely without being publicly exposed.
+
+---
+
+### 🧭 Route Tables
 ![Route Tables](images/route-table.png)
 
-### Bastion Host Access
+Defines how traffic flows inside the VPC between public and private subnets.
+
+---
+
+### 🖥️ Bastion Host Access
 ![Bastion SSH](images/ssh-bastion.png)
 
-### Private EC2 Access
+Secure entry point used to SSH into private EC2 instances.
+
+---
+
+### 🧑‍💻 Private EC2 Access
 ![App SSH](images/ssh-app.png)
 
-### Terraform Plan
+Demonstrates secure access to private EC2 via Bastion Host.
+
+---
+
+### 📦 Terraform Plan
 ![Terraform Plan](images/terraform-plan.png)
 
-### Terraform Apply
+Shows infrastructure changes before deployment for review and validation.
+
+---
+
+### 🚀 Terraform Apply
 ![Terraform Apply](images/terraform-apply.png)
+
+Confirms successful provisioning of AWS infrastructure using Terraform.
 
 ---
 
@@ -121,12 +151,12 @@ terraform apply
 
 ## 🧠 Key Learnings
 
-- AWS VPC design and subnet segmentation
-- Secure cloud architecture patterns
-- Bastion host access control
-- Load balancer traffic distribution
-- Infrastructure as Code with Terraform
-- Real-world DevOps networking design
+- AWS VPC design and subnet segmentation  
+- Secure cloud architecture patterns  
+- Bastion host access control  
+- Load balancer traffic distribution  
+- Infrastructure as Code with Terraform  
+- Real-world DevOps networking design  
 
 ---
 
